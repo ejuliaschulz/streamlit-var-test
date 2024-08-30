@@ -12,7 +12,7 @@ def main():
     #Build the model
     model = VAR(df, freq='MS')
 
-aic, bic = [], []
+    aic, bic = [], []
 
     o_range = np.arange(1, 11)
     for i in o_range:
