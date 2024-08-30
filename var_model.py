@@ -12,28 +12,16 @@ def main():
     #Build the model
     model = VAR(df, freq='MS')
 
-    aic, bic, fpe, hqic = [], [], [], []
+aic, bic = [], []
 
     o_range = np.arange(1, 11)
     for i in o_range:
         result = model.fit(i)
-        try:
-            aic.append(result.aic)
-            bic.append(result.bic)
-            fpe.append(result.fpe)
-            hqic.append(result.hqic)
-        except Exception as e:
-            print("for order = " + str(i))
-            print(f"Unexpected Error {e=}, {type(e)=}")
-            aic.append(None)
-            bic.append(None)
-            fpe.append(None)
-            hqic.append(None)
+        aic.append(result.aic)
+        bic.append(result.bic)
 
     lags_metrics_df = pd.DataFrame({'AIC': aic,
-                                    'BIC': bic,
-                                    'HQIC': hqic,
-                                    'FPE': fpe},
+                                    'BIC': bic},
                                    index=range(1, len(aic) + 1))
 
 
