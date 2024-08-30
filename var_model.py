@@ -47,7 +47,7 @@ def main():
 
     st.write(df)
     st.write("Best model order found: " + str(best_model_order))
-     st.write(lags_metrics_df)
+    st.write(lags_metrics_df)
 
 if __name__ == "__main__":
     main()
